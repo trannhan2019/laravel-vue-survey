@@ -1,26 +1,12 @@
-<template>
-  <header class="bg-white shadow">
-    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-      <h1 class="text-3xl font-bold text-gray-900">Surveys</h1>
-    </div>
-  </header>
-  <main>
-    <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-      <!-- Replace with your content -->
-      <div class="px-4 py-6 sm:px-0">
-        Content goes here
-      </div>
-      <!-- /End replace -->
-    </div>
-  </main>
-</template>
+<script setup>
+  import store from "../store";
+  import { computed } from "vue";
+  import {PlusIcon} from "@heroicons/vue/solid";
+  import TButton from '../components/core/TButton.vue';
+  import PageComponent from "../components/PageComponent.vue";
+  import SurveyListItem from "../components/SurveyListItem.vue";
 
-<script>
-    export default {
-        name: "Surveys.vue"
-    }
+  const surveys = computed(() => store.state.surveys);
+
+  store.dispatch("getSurveys");
 </script>
-
-<style scoped>
-
-</style>
